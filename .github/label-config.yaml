@@ -1,0 +1,7 @@
+frontend:
+# 両方に変更がある場合
+  - all:
+    - changed-files:
+      - all-globs-to-all-files: 'frontend/**'
+    - changed-files:
+      - any-glob-to-any-file: '!frontend/gen/**'
