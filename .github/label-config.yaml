@@ -2,5 +2,4 @@ frontend:
   - all:
     - changed-files:
       - all-globs-to-all-files: 'frontend/**'
-    - changed-files:
       - any-glob-to-any-file: '!frontend/gen/**'
