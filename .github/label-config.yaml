@@ -1,6 +1,6 @@
 frontend:
   - all:
     - changed-files:
-      - all-globs-to-all-files: 'frontend/**'
+      - any-glob-to-any-file: 'frontend/**'
     - changed-files:
-      - any-glob-to-any-file: '!frontend/gen/**'
+      - all-globs-to-any-file: ['frontend/**', '!frontend/gen/**']
