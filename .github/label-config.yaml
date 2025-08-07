@@ -1,3 +1,6 @@
 frontend:
   - changed-files:
     - all-globs-to-any-file: ['frontend/**', '!frontend/gen/**']
+backend:
+  - changed-files:
+    - all-globs-to-any-file: ['backend/**', '!backend/*/gen/**']
