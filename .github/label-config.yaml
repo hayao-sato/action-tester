@@ -4,3 +4,11 @@ frontend:
 backend:
   - changed-files:
     - all-globs-to-any-file: ['backend/**', '!backend/*/gen/**']
+feature:
+  - head-branch: ['^feature']
+hotfix:
+  - head-branch: ['^hotfix']
+release:
+  - head-branch: ['^release']
+epic:
+  - head-branch: ['^epic']
