@@ -1,0 +1,41 @@
+# .github/workflows/deploy-docs.yml
+
+name: Deploy Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**' # docsディレクトリ配下の変更時のみ実行
+
+# gh-pagesブランチへの書き込み権限を付与
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. リポジトリのソースコードをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. uvをインストール
+      # 公式の setup-python アクションに uv のインストール機能が追加された
+      - name: Set up Python and uv
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # 任意のPythonバージョン
+          cache: 'uv'
+          cache-dependency-path: 'docs/pyproject.toml' # キャッシュキーの元になるファイルを指定
+
+      # 3. 依存関係のインストールとデプロイの実行
+      # uv run <script_name> を使うことで、仮想環境の作成、
+      # パッケージインストール、コマンド実行を自動で行う
+      - name: Install dependencies and deploy
+        run: uv -C docs run deploy
+        env:
+          # mkdocs gh-deploy はコミッター情報を必要とするため設定
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 古いバージョンの ghp-import 対策
