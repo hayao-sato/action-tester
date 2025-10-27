@@ -1,0 +1,16 @@
+site_name: My Docs
+
+docs_dir: src
+
+theme:
+  name: material
+  language: ja
+
+nav:
+  - backend: "!include ../backend/mkdocs.yml"
+  - specs:
+    - backend: "spec/api-swagger.md"
+
+plugins:
+  - monorepo
+  - swagger-ui-tag

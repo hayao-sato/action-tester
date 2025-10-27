@@ -1,0 +1,4 @@
+site_name: "backend"
+
+nav:
+  - architecture: "architecture.md"
