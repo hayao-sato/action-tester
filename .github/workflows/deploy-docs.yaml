@@ -23,18 +23,16 @@ jobs:
 
       # 2. uvをインストール
       # 公式の setup-python アクションに uv のインストール機能が追加された
-      - name: Set up Python and uv
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11' # 任意のPythonバージョン
-          # cache: 'uv'
-          # cache-dependency-path: 'docs/pyproject.toml' # キャッシュキーの元になるファイルを指定
-
+      - name: Install uv based on the config files in the working-directory  
+        uses: astral-sh/setup-uv@v6  
+        with:  
+            working-directory: docs
       # 3. 依存関係のインストールとデプロイの実行
       # uv run <script_name> を使うことで、仮想環境の作成、
       # パッケージインストール、コマンド実行を自動で行う
       - name: Install dependencies and deploy
-        run: uv -C docs run deploy
+        run: uv run deploy
+        working-directory: docs
         env:
           # mkdocs gh-deploy はコミッター情報を必要とするため設定
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
