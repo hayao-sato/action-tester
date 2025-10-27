@@ -27,8 +27,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11' # 任意のPythonバージョン
-          cache: 'uv'
-          cache-dependency-path: 'docs/pyproject.toml' # キャッシュキーの元になるファイルを指定
+          # cache: 'uv'
+          # cache-dependency-path: 'docs/pyproject.toml' # キャッシュキーの元になるファイルを指定
 
       # 3. 依存関係のインストールとデプロイの実行
       # uv run <script_name> を使うことで、仮想環境の作成、
