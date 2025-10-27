@@ -32,7 +32,7 @@ jobs:
       # uv run <script_name> を使うことで、仮想環境の作成、
       # パッケージインストール、コマンド実行を自動で行う
       - name: Install dependencies and deploy
-        run: uv -C docs run deploy
+        run: uv run mkdocs gh-deploy --force
         working-directory: docs
         env:
           # mkdocs gh-deploy はコミッター情報を必要とするため設定

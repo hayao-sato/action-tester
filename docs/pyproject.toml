@@ -10,6 +10,3 @@ dependencies = [
     "mkdocs-monorepo-plugin>=1.1.2",
     "mkdocs-swagger-ui-tag>=0.7.2",
 ]
-
-[project.scripts]
-deploy = "mkdocs gh-deploy --force"
