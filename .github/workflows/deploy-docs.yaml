@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - 'docs/**' # docsディレクトリ配下の変更時のみ実行
+  workflow_dispatch:
 
 # gh-pagesブランチへの書き込み権限を付与
 permissions:
