@@ -1,0 +1,208 @@
+# OpenAPI Specificationのバージョン
+openapi: 3.0.3
+
+# APIの基本情報
+info:
+  title: シンプルなユーザー管理API (デモ用)
+  description: |-
+    これはユーザー情報を管理するためのシンプルなAPI仕様書のサンプルです。
+    基本的なCRUD操作を試すことができます。
+  version: 1.0.0
+  contact:
+    name: APIサポートチーム
+    email: support@example.com
+
+# サーバー情報 (デモなのでローカルホストを想定)
+servers:
+  - url: http://localhost:8000/api/v1
+    description: 開発用サーバー
+
+# タグ (APIのグループ化)
+tags:
+  - name: Users
+    description: ユーザーに関する操作
+
+# パス (APIのエンドポイント)
+paths:
+  # /users エンドポイント
+  /users:
+    # ユーザー一覧を取得するAPI
+    get:
+      tags:
+        - Users
+      summary: ユーザー一覧を取得
+      description: 登録されている全てのユーザーのリストを返します。
+      operationId: listUsers
+      responses:
+        # 成功時のレスポンス (ステータスコード 200)
+        '200':
+          description: ユーザー一覧の取得に成功
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User' # Userスキーマの配列
+    # 新しいユーザーを作成するAPI
+    post:
+      tags:
+        - Users
+      summary: 新しいユーザーを作成
+      description: 新しいユーザーをシステムに登録します。
+      operationId: createUser
+      requestBody:
+        description: 作成するユーザーの情報
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewUser' # NewUserスキーマ
+      responses:
+        # 作成成功時のレスポンス (ステータスコード 201)
+        '201':
+          description: ユーザーの作成に成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User' # 作成されたUser情報を返す
+
+  # /users/{userId} エンドポイント
+  /users/{userId}:
+    # 特定のユーザーを取得するAPI
+    get:
+      tags:
+        - Users
+      summary: 特定のユーザーを取得
+      description: 指定されたIDのユーザー情報を返します。
+      operationId: getUserById
+      parameters:
+        - name: userId
+          in: path
+          description: 取得するユーザーのID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: ユーザー情報の取得に成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: ユーザーが見つかりません
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    # 特定のユーザー情報を更新するAPI
+    put:
+      tags:
+        - Users
+      summary: ユーザー情報を更新
+      description: 指定されたIDのユーザー情報を更新します。
+      operationId: updateUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: 更新するユーザー情報
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewUser' # 更新内容もNewUserスキーマを再利用
+      responses:
+        '200':
+          description: 更新に成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    # 特定のユーザーを削除するAPI
+    delete:
+      tags:
+        - Users
+      summary: ユーザーを削除
+      description: 指定されたIDのユーザーを削除します。
+      operationId: deleteUser
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 削除に成功 (レスポンスボディなし)
+
+# 再利用可能なコンポーネント
+components:
+  # データモデル (スキーマ)
+  schemas:
+    # ユーザー情報 (IDを含む)
+    User:
+      type: object
+      required:
+        - id
+        - name
+        - email
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ユーザーID (一意)
+          example: 10
+        name:
+          type: string
+          description: ユーザー名
+          example: "Taro Yamada"
+        email:
+          type: string
+          format: email
+          description: メールアドレス
+          example: "taro.yamada@example.com"
+        createdAt:
+          type: string
+          format: date-time
+          description: 作成日時
+          readOnly: true # 読み取り専用
+    # 新規作成・更新時に使用するユーザー情報 (IDなし)
+    NewUser:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+          example: "Jiro Suzuki"
+        email:
+          type: string
+          format: email
+          example: "jiro.suzuki@example.com"
+    # エラーレスポンス
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  # 認証方式
+  securitySchemes:
+    ApiKeyAuth: # 認証方式に名前を付ける
+      type: apiKey
+      in: header
+      name: X-API-KEY # このヘッダー名でAPIキーを送信
+
+# API全体に適用する認証 (グローバル設定)
+security:
+  - ApiKeyAuth: [] # ApiKeyAuthを必須にする

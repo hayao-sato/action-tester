@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/backend/architecture/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/backend/coding_rule/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/functions/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/functions/global/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/functions/global/components/product-list/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/spec/api-old-swagger/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hayao-sato.github.io/action-tester/spec/api-swagger/</loc>
+         <lastmod>2025-10-30</lastmod>
+    </url>
+</urlset>
