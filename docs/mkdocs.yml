@@ -12,6 +12,7 @@ nav:
   - 設計: "functions/index.md"
   - specs:
       - backend: "spec/api-swagger.md"
+      - old: "spec/api-old-swagger.md"
 
 plugins:
   - monorepo
