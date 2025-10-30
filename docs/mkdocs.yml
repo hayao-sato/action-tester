@@ -17,3 +17,11 @@ nav:
 plugins:
   - monorepo
   - swagger-ui-tag
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # 👇 この設定を追加する
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

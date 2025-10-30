@@ -7,4 +7,4 @@
 
 ## 画面構成
 1. 主要言語表示時
-<iframe title="コミュニティリソースのプレビュー" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=fastma&amp;community_viewer=true&amp;hub_file_id=1226665611364834110&amp;fuid=1563076598488432755" allowfullscreen="" class="canvas_viewer--showIframe--uYOO5"></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=fastma&amp;community_viewer=true&amp;hub_file_id=1226665611364834110&amp;fuid=1563076598488432755" allowfullscreen></iframe>
