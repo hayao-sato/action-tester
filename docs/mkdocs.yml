@@ -9,8 +9,9 @@ theme:
 
 nav:
   - backend: "!include ../backend/mkdocs.yml"
+  - 設計: "functions/index.md"
   - specs:
-    - backend: "spec/api-swagger.md"
+      - backend: "spec/api-swagger.md"
 
 plugins:
   - monorepo
