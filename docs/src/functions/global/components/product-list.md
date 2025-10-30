@@ -7,4 +7,4 @@
 
 ## 画面構成
 1. 主要言語表示時
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=fastma&amp;community_viewer=true&amp;hub_file_id=1226665611364834110&amp;fuid=1563076598488432755" allowfullscreen></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS8gMG1C48HXQ27OgcM57IswdloTuplyGa71MRY4gjjjzG9eEP2m7swUOxKcZLy9Pa_B06JxStY-KYb/pubembed?start=false&loop=false&delayms=3000&slide=2" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
