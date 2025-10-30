@@ -1,5 +1,5 @@
 # ドキュメントビューアのテスト用
-mkdocsというツールを使って、SSGしてpagesやローカルで整形されたマークダウンの形で表示できます。
+[mkdocs](https://www.mkdocs.org/)というツールを使って、SSGしてpagesやローカルで整形されたマークダウンの形で表示できます。
 
 ## mkdocsのローカル実行方法
 1. [uv](https://github.com/astral-sh/uv) 入れてください(方法は各自)
