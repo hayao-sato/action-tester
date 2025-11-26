@@ -17,7 +17,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "postinstall": "husky install"
+    "postinstall": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
