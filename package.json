@@ -1,0 +1,27 @@
+{
+  "name": "action-tester",
+  "version": "1.0.0",
+  "description": "git 関連のaction確認が目的",
+  "homepage": "https://github.com/hayao-sato/action-tester#readme",
+  "bugs": {
+    "url": "https://github.com/hayao-sato/action-tester/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hayao-sato/action-tester.git"
+  },
+  "license": "UNLICENSED",
+  "packageManager": "yarn@4.12.0",
+  "author": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "husky": "^9.1.7"
+  }
+}
